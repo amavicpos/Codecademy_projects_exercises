@@ -20,7 +20,7 @@ while True:
     try:
         row_position1 = np.where(table[:, position1] == "-")[0][-1]
     except:
-        print("Column full! Program will end because of the error. Please start again.")
+        print("Column full or invalid position! Program will end because of the error. Please start again.")
         sys.exit()
     table[row_position1, position1] = "x"
 
@@ -31,7 +31,7 @@ while True:
     try:
         row_position2 = np.where(table[:, position2] == "-")[0][-1]
     except:
-        print("Column full! Program will end because of the error. Please start again.")
+        print("Column full or invalid position! Program will end because of the error. Please start again.")
         sys.exit()
     table[row_position2, position2] = "o"
 
