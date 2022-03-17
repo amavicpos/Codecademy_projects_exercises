@@ -8,6 +8,7 @@ class player:
         self.symbol = symbol
 
 def droppiece(playeer):
+    err = True
     while err == True:
         position = int(input("{}: Drop your piece in the desired position: 1 2 3 4 5 6 7".format(playeer.name))) - 1
         try:
