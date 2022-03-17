@@ -8,12 +8,15 @@ class player:
         self.symbol = symbol
 
 def droppiece(playeer):
-    position = int(input("{}: Drop your piece in the desired position: 1 2 3 4 5 6 7".format(playeer.name))) - 1
-    try:
-        row_position = np.where(table[:, position] == "-")[0][-1]
-    except: #Computer throws an exception if the position is not valid:
-        print("Column full or invalid position! Program will end because of the error. Please start again.")
-        sys.exit()
+    while err == True:
+        position = int(input("{}: Drop your piece in the desired position: 1 2 3 4 5 6 7".format(playeer.name))) - 1
+        try:
+            row_position = np.where(table[:, position] == "-")[0][-1]
+            err = False
+        except: #Computer throws an exception if the position is not valid:
+            print("Column full or invalid position! Program will end because of the error. Please choose another position.")
+            err = True
+        
     table[row_position, position] = "{}".format(playeer.symbol)
 
 def showtable():
