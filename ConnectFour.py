@@ -8,7 +8,7 @@ class player:
         self.symbol = symbol
 
 def droppiece(playeer):
-    position = int(input("{}: Drop your piece in the desired position: 1 2 3 4 5 6 7".format(playeer))) - 1
+    position = int(input("{}: Drop your piece in the desired position: 1 2 3 4 5 6 7".format(playeer.name))) - 1
     try:
         row_position = np.where(table[:, position] == "-")[0][-1]
     except: #Computer throws an exception if the position is not valid:
