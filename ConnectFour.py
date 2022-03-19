@@ -10,7 +10,7 @@ class player:
 def droppiece(playeer):
     err = True
     while err == True:
-        position = int(input("{}: Drop your piece in the desired position: 1 2 3 4 5 6 7".format(playeer.name))) - 1
+        position = int(input("{}: Drop your piece in the desired position: 1 2 3 4 5 6 7 ".format(playeer.name))) - 1
         try:
             row_position = np.where(table[:, position] == "-")[0][-1]
             err = False
@@ -20,9 +20,28 @@ def droppiece(playeer):
         
     table[row_position, position] = "{}".format(playeer.symbol)
 
-def showtable():
+def showtable(table, rows_table):
     for x in range(rows_table):
         print(" ".join(table[x]))
+
+def chechwin(table, rows_table, columns_table):
+    for x in range(rows_table):
+        for y in range(columns_table-3):
+            if table[x,y] != "-" and table[x,y] == table[x,y+1] == table[x,y+2] == table[x,y+3]: return True
+
+    for y in range(columns_table):
+        for x in range(rows_table-3):
+            if table[x,y] != "-" and table[x,y] == table[x+1,y] == table[x+2,y] == table[x+3,y]: return True
+    
+    for x in range(rows_table-3):
+        for y in range(columns_table-3):
+            if table[x,y] != "-" and table[x,y] == table[x+1,y+1] == table[x+2,y+2] == table[x+3,y+3]: return True
+    
+    for x in range(rows_table-3):
+        for y in range(3,columns_table):
+            if table[x,y] != "-" and table[x,y] == table[x+1,y-1] == table[x+2,y-2] == table[x+3,y-3]: return True
+
+    return False
 
 #Set up the table and players for the game:
 table = np.array([["-", "-", "-", "-", "-", "-", "-"]] * 6)
@@ -31,23 +50,17 @@ columns_table = np.size(table, axis = 1)
 player1 = player("Player 1", "x")
 player2 = player("Player 2", "o")
 
-while True:
-    #Loops game until someone wins:
-    continue_or_not = input("Did someone win?: Answer with \"Yes\" or \"No\": ")
-    if continue_or_not.lower() == "yes":
-        break
-    if continue_or_not.lower() == "no":
-        pass
-    else:
-        print("Answer not valid. Please answer with \"Yes\" or \"No\"")
-        continue
-
+while True: #Loops game until someone wins
     #First player drops their piece:
     droppiece(player1)
-    showtable()
+    showtable(table, rows_table)
+    if chechwin(table, rows_table, columns_table) == True:
+        print("Game ended! Congratulations to {}.".format(player1.name))
+        break
 
     #Second player drops their piece:
     droppiece(player2)
-    showtable()
-
-print("Game ended!")
+    showtable(table, rows_table)
+    if chechwin(table, rows_table, columns_table) == True:
+        print("Game ended! Congratulations to {}.".format(player2.name))
+        break
