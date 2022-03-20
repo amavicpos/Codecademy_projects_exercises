@@ -37,13 +37,11 @@ class LinkedList:
     current_node = self.get_head_node()
     if current_node.get_value() == value_to_remove:
       self.head_node = current_node.get_next_node()
-      current_node.set_next_node(None)
     else:
       while current_node.get_next_node():
         next_node = current_node.get_next_node()
         if next_node.get_value() == value_to_remove:
           current_node.set_next_node(next_node.get_next_node())
-          next_node.set_next_node(None)
           current_node = None
         else:
           current_node = next_node
@@ -52,13 +50,11 @@ class LinkedList:
     current_node = self.get_head_node()
     while current_node.get_value() == value_to_remove:
       self.head_node = current_node.get_next_node()
-      current_node.set_next_node(None)
       current_node = self.get_head_node()
     while current_node.get_next_node():
         next_node = current_node.get_next_node()
         if next_node.get_value() == value_to_remove:
           current_node.set_next_node(next_node.get_next_node())
-          next_node.set_next_node(None)
           current_node = current_node.get_next_node()
         else:
           current_node = next_node
