@@ -50,17 +50,22 @@ columns_table = np.size(table, axis = 1)
 player1 = player("Player 1", "x")
 player2 = player("Player 2", "o")
 
+print("Welcome to Connect Four! Let's start the game...")
+
 while True: #Loops game until someone wins
     #First player drops their piece:
     droppiece(player1)
     showtable(table, rows_table)
     if chechwin(table, rows_table, columns_table) == True:
         print("Game ended! Congratulations to {}.".format(player1.name))
-        break
+        sys.exit()
 
     #Second player drops their piece:
     droppiece(player2)
     showtable(table, rows_table)
     if chechwin(table, rows_table, columns_table) == True:
         print("Game ended! Congratulations to {}.".format(player2.name))
-        break
+        sys.exit()
+    
+    if len(np.where(table == "-")[0]) == 0:
+        print("Game ended! It's a draw.")
