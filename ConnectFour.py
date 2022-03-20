@@ -1,6 +1,5 @@
 # ConnectFour.py
 import numpy as np
-import sys
 
 class player:
     def __init__(self, name, symbol):
