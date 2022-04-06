@@ -130,6 +130,7 @@ values = list(restaurants_dict.values())
 quicksort_two_lists(values, keys, 0, len(values)-1)
 order = 1
 pre_value = values[0]
+print("\nRestaurant recommendations, from most suitable to least:")
 for key, value in zip(keys, values):
   if pre_value != value:
     order += 1
