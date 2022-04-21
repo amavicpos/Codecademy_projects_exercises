@@ -33,8 +33,8 @@ CREATE TABLE states_official_languages (
 );
 
 COPY state FROM 'C:\\Users\\Public\\Documents\\States1.csv' DELIMITER ',' CSV HEADER;
-COPY state_details FROM 'C:\\Users\\Public\\Documents\\States2.csv' DELIMITER ',' CSV HEADER;
 COPY type_government FROM 'C:\\Users\\Public\\Documents\\States3.csv' DELIMITER ',' CSV HEADER;
+COPY state_details FROM 'C:\\Users\\Public\\Documents\\States2.csv' DELIMITER ',' CSV HEADER;
 COPY language FROM 'C:\\Users\\Public\\Documents\\States4.csv' DELIMITER ',' CSV HEADER;
 COPY states_official_languages FROM 'C:\\Users\\Public\\Documents\\States5.csv' DELIMITER ',' CSV HEADER;
 
