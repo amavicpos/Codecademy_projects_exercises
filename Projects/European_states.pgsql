@@ -1,3 +1,4 @@
+/*
 DROP TABLE states.state_details;
 DROP TABLE states.states_official_languages;
 DROP TABLE states.language;
@@ -5,6 +6,7 @@ DROP TABLE states.type_government;
 DROP TABLE states.state;
 
 DROP SCHEMA states;
+*/
 
 CREATE SCHEMA states;
 
@@ -48,7 +50,7 @@ COPY states.state_details FROM 'C:\\Users\\Public\\Documents\\States2.csv' DELIM
 COPY states.language FROM 'C:\\Users\\Public\\Documents\\States4.csv' DELIMITER ',' CSV HEADER;
 COPY states.states_official_languages FROM 'C:\\Users\\Public\\Documents\\States5.csv' DELIMITER ',' CSV HEADER;
 
-DROP USER viewer;
+-- DROP USER viewer;
 CREATE USER viewer WITH PASSWORD 'myPassword';
 GRANT USAGE ON SCHEMA states TO viewer;
 GRANT SELECT ON ALL TABLES IN SCHEMA states TO viewer;
