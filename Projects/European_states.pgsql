@@ -54,7 +54,7 @@ GRANT USAGE ON SCHEMA states TO viewer;
 GRANT SELECT ON ALL TABLES IN SCHEMA states TO viewer;
 ALTER DEFAULT PRIVILEGES FOR USER viewer IN SCHEMA states
 GRANT SELECT ON TABLES TO viewer;
-SET ROLE viewer;
+SET ROLE viewer; -- Mimicking the role of viewer as the superuser
 
 SELECT COUNT(*) AS Number_of_European_states FROM states.state;
 
