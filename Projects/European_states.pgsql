@@ -48,6 +48,15 @@ COPY states.state_details FROM 'C:\\Users\\Public\\Documents\\States2.csv' DELIM
 COPY states.language FROM 'C:\\Users\\Public\\Documents\\States4.csv' DELIMITER ',' CSV HEADER;
 COPY states.states_official_languages FROM 'C:\\Users\\Public\\Documents\\States5.csv' DELIMITER ',' CSV HEADER;
 
+DROP ROLE viewer;
+CREATE ROLE viewer;
+GRANT USAGE ON SCHEMA states TO viewer;
+GRANT SELECT ON ALL TABLES IN SCHEMA states TO viewer;
+ALTER DEFAULT PRIVILEGES FOR USER viewer IN SCHEMA states
+GRANT SELECT ON TABLES TO viewer;
+SET ROLE viewer;
+
+
 SELECT COUNT(*) AS Number_of_European_states FROM states.state;
 
 SELECT SUM(population) AS total_population_in_Europe FROM states.state_details;
