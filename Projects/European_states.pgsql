@@ -56,7 +56,6 @@ ALTER DEFAULT PRIVILEGES FOR USER viewer IN SCHEMA states
 GRANT SELECT ON TABLES TO viewer;
 SET ROLE viewer;
 
-
 SELECT COUNT(*) AS Number_of_European_states FROM states.state;
 
 SELECT SUM(population) AS total_population_in_Europe FROM states.state_details;
