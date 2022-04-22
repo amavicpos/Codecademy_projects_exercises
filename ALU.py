@@ -17,7 +17,6 @@ def OR_gate(a, b):
 def XOR_gate(a, b):
     return AND_gate(NAND_gate(a, b), OR_gate(a, b))
 
-
 def half_adder(a, b):
     s = XOR_gate(a, b)
     c = AND_gate(a, b)
